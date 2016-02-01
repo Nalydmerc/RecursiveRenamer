@@ -1,5 +1,7 @@
 """
 Directory-Recursive Copy/Rename
+author: Dylan Smith
+Email: Nalydmerc@gmail.com
 
 This program iterates through a directory and all of its subdirectories using os.walk, renaming every file contianed
 in the directory based on input specified by the user. All renaming rules are saved in a dictionary, and stored in a
@@ -20,8 +22,6 @@ HOW TO USE:
 import os
 import pickle
 from shutil import copyfile
-__author__ = "Dylan Smith"
-__email__ = "Nalydmerc@gmail.com"
 
 # Change this to False to prompt user for pickle path
 useInternalPaths = False
