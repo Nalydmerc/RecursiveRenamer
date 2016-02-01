@@ -33,15 +33,18 @@ pickle_directory = 'C:\\Users\\intern\\Desktop\\'
 # working_directory is the folder that you'll be going through, WITHOUT SLASH.
 working_directory = "C:\\Users\\intern\\Desktop\\Test"
 
+
 # Saves renaming rules to file
 def save_obj(obj, name):
     with open(pickle_directory + name + '.pkl', 'wb') as f:
         pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
 
+
 # Loads renaming rules from file
 def load_obj(name):
     with open(pickle_directory + name + '.pkl', 'rb') as f:
         return pickle.load(f)
+
 
 def run_through_dir(directory):
     # For every directory
@@ -85,7 +88,7 @@ def run_through_dir(directory):
                             if not os.path.exists(new_path):
                                 copyfile(old_path, new_path)
                             else:
-                                i = 1;
+                                i = 1
                                 new_path = file_directory + '\\' + new_name + '(' + str(i) + ')' + extension
                                 while os.path.exists(new_path):
                                     i += 1
@@ -93,7 +96,7 @@ def run_through_dir(directory):
                                     copyfile(old_path, new_path)
                         # Rename the file to the proper capitalization.
                         elif new_name != proper_name:
-                            os.rename(old_path,new_path)
+                            os.rename(old_path, new_path)
                     lowercase_new_names = [n.lower() for n in rename_dict[name]]
                     if name not in lowercase_new_names:
                         os.remove(old_path)
@@ -109,14 +112,14 @@ def run_through_dir(directory):
                             # We don't know if the new file we're moving this file to already exists, so we'll check and
                             # add a number to append to the filename until we find one that doesn't exist already.
                             if not os.path.exists(new_path):
-                                os.rename(old_path,new_path)
+                                os.rename(old_path, new_path)
                             else:
-                                i = 1;
+                                i = 1
                                 new_path = file_directory + '\\' + new_name + '(' + str(i) + ')' + extension
                                 while os.path.exists(new_path):
                                     i += 1
                                     new_path = file_directory + '\\' + new_name + '(' + str(i) + ')' + extension
-                                os.rename(old_path,new_path)
+                                os.rename(old_path, new_path)
 
 if not useInternalPaths:
     pickle_path = input("Input pickle file path: ")
